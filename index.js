@@ -1,8 +1,8 @@
 
+var clc = require("cli-color");
 var Word = require("./Word");
 var inquirer = require("inquirer");
-
-var arrayOfStrings = ["a word", "bword", "cword", "dword", "eword", "fword"];
+var arrayOfStrings = ["a w ord", "b word"];
 var arrayOfWords = [];
 
 var count = 0;
@@ -36,7 +36,7 @@ function startGame(){
             i = 0;
             playingGame();
         }else{
-            console.log("Come back when you want to play!");
+            console.log(clc.blue("Come back when you want to play!"));
         }
     });
 }
@@ -51,11 +51,17 @@ playingGame = function(){
             message: "Guess a Letter!"
             },
         ]).then(function(answers) {
+            console.log(((chosenWord.word.length+3) - i) + " guesses remaining!");
+            console.log(" ");
             chosenWord.letterGuess(answers.letter);
            // printedWord = "";
+
             printedWord = chosenWord.wordConcat();
+         
+
             console.log(printedWord);
-            if (chosenWord.count == chosenWord.word.length){
+            console.log(chosenWord.spaceCount)
+            if ((chosenWord.count + chosenWord.spaceCount) == chosenWord.word.length){
                 console.log("You got that right!! Next Word!");
                 i = chosenWord.word.length+3;
                 startGame();
@@ -67,3 +73,4 @@ playingGame = function(){
 }
 
 startGame();
+
