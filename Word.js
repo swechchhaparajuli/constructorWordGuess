@@ -35,6 +35,9 @@ var Word = function(word){
        this.bool = false;
         for (var i = 0; i < word.length; i++){
             letterArray[i].checkGuess(guess);
+            if(letterArray[i].char.toLowerCase() == guess){
+                this.bool = true;
+            }
         }
 
     }

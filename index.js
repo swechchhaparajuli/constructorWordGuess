@@ -2,7 +2,7 @@
 var clc = require("cli-color");
 var Word = require("./Word");
 var inquirer = require("inquirer");
-var arrayOfStrings = ["a w ord", "b word"];
+var arrayOfStrings = ["Lord of the Rings", "Lion King", "Little Mermaid"];
 var arrayOfWords = [];
 
 var count = 0;
@@ -55,15 +55,16 @@ playingGame = function(){
             console.log(" ");
             chosenWord.letterGuess(answers.letter);
            // printedWord = "";
-
+            if(!chosenWord.bool){
+                console.log(clc.red("INCORRECT"));
+            }
             printedWord = chosenWord.wordConcat();
-         
 
             console.log(printedWord);
             console.log(chosenWord.spaceCount)
             if ((chosenWord.count + chosenWord.spaceCount) == chosenWord.word.length){
                 console.log("You got that right!! Next Word!");
-                i = chosenWord.word.length+3;
+                i = chosenWord.word.length+4;
                 startGame();
             }
             i++;
