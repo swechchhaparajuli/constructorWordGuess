@@ -41,7 +41,6 @@ function startGame(){
     });
 }
 
-
 playingGame = function(){
     //console.log(chosenWord.word.length);
     if (i< chosenWord.word.length + 4){
@@ -55,9 +54,12 @@ playingGame = function(){
             console.log(" ");
             chosenWord.letterGuess(answers.letter);
            // printedWord = "";
-            if(!chosenWord.bool){
+            if(chosenWord.bool){
+                console.log(clc.green("CORRECT!!!")); 
+            }else{
                 console.log(clc.red("INCORRECT"));
             }
+
             printedWord = chosenWord.wordConcat();
 
             console.log(printedWord);

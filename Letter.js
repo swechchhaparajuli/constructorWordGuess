@@ -20,8 +20,7 @@ var clc = require("cli-color");
         //console.log(this.char)
         this.temp = false;
         if (gChar == this.char.toLowerCase()){
-            this.guessed = true;
-            console.log(clc.green("CORRECT!!!"));   
+            this.guessed = true;  
         }
     }
     
