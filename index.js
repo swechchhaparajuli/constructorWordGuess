@@ -72,6 +72,8 @@ playingGame = function(){
             i++;
             playingGame();
         });
+    }else if(i == chosenWord.word.length + 4){
+        startGame();
     }
 }
 
